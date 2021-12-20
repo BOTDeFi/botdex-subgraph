@@ -1,0 +1,19 @@
+type User @entity {
+  id: ID!
+  TotalBalance: BigInt!
+  Bep20Balance: BigInt!
+  MasterBalance: BigInt!
+}
+
+type Pool @entity {
+  id: ID!
+}
+
+type BalanceHistory @entity {
+  id: ID!
+  User: User!
+  Bep20Balance: BigInt!
+  MasterBalance: BigInt!
+  BlockNumber: BigInt!
+  TotalBalance: BigInt!
+}

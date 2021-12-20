@@ -1,0 +1,50 @@
+specVersion: 0.0.2
+schema:
+  file: ./voting.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: SmartChefFactory
+    network: {{ network }}
+    source:
+      address: '{{ smart_chef_factory_address }}'
+      abi: SmartChefFactory
+      startBlock: {{ startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Pool
+        - Balance
+        - BalanceHistory
+      abis:
+        - name: SmartChefFactory
+          file: ../abis/SmartChefFactory.json
+      eventHandlers:
+        - event: NewSmartRefinerContract(indexed address)
+          handler: handleNewSmartRefinerContract
+      file: ../src/voting/SmartChefFactory/mapping.ts
+  - kind: ethereum/contract
+    name: Token
+    network: {{ network }}
+    source:
+      address: '{{ token_address }}'
+      abi: Token
+      startBlock: {{ startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Pool
+        - Balance
+        - BalanceHistory
+      abis:
+        - name: Token
+          file: ../abis/Token.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/voting/Token/mapping.ts

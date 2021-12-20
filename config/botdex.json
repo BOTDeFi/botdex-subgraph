@@ -1,0 +1,23 @@
+{
+    "name": "botdex",
+    "network": "chapel",
+    "factory_address": "0x219864ac21afe9b03386b172cc58334d949cdc88",
+    "startBlock": "14827526",
+    "weth_address": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+    "smart_chef_factory_address": "0xc41ee8fe1e7a9da3c5d1590aac1dfdfbce70c3bc",
+    "vault_address": "0xe7824ea63d9ecd72a66d5a3cd7457222ee5a6518",
+    "master_address": "0x151dd0bd76bfb594a1c43fa8ef37eaa0bd26b5ab",
+    "token_address": "0x8bea9729837edb58fa2d20a644d949dfc113e866",
+    "usdc_weth_pair": "",
+    "dai_weth_pair": "",
+    "usdt_weth_pair": "0x92e999ccb3a368678422e5814abdd177700ccf93",
+    "dai_address": "",
+    "usdt_address": "0xa520feb43893cfa59845cdbbcbddf4f6f991fbb6",
+    "usdc_address": "",
+    "minimum_usd_threshold_new_pairs": "1000",
+    "minimum_liquidity_threshold_eth": "0",
+    "whitelist": [
+        "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+        "0xa520feb43893cfa59845cdbbcbddf4f6f991fbb6"
+    ]
+}

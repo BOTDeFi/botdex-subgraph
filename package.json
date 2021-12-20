@@ -1,0 +1,36 @@
+{
+  "name": "refinery.finance-subgraph",
+  "description": "refinery.finance subgraphs",
+  "version": "2.0.0",
+  "repository": "git@github.com:Rock-n-Block/refinery.finance-subgraph.git",
+  "author": "Rock-n-Block",
+  "license": "MIT",
+  "scripts": {
+    "codegen:exchange": "graph codegen subgraphs/exchange.yaml",
+    "codegen:voting": "graph codegen subgraphs/voting.yaml",
+
+    "build:exchange": "graph build subgraphs/exchange.yaml",
+    "build:voting": "graph build subgraphs/voting.yaml",
+  
+    "prepare:exchange_botdex": "mustache ./config/botdex.json ./subgraphs/exchange.template.yaml > ./subgraphs/exchange.yaml && mustache ./config/botdex.json ./src/const.template.ts > ./src/const.ts",
+    "prepare:voting_botdex": "mustache ./config/botdex.json ./subgraphs/voting.template.yaml > ./subgraphs/voting.yaml && mustache ./config/botdex.json ./src/const.template.ts > ./src/const.ts",
+
+    "deploy:exchange_botdex": "graph deploy --debug --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ rock-n-block/botdex-dao-exchange subgraphs/exchange.yaml" ,
+    "deploy:voting_botdex": "graph deploy --debug --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ rock-n-block/dao subgraphs/voting.yaml" ,
+
+    "format:check": "prettier --check '*/**/*.{js,ts}'",
+    "format:write": "prettier --write '*/**/*.{js,ts}'",
+    "lint": "eslint '*/**/*.{js,ts}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format:write",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.20.0",
+    "@graphprotocol/graph-ts": "^0.18.1",
+    "mustache": "^4.2.0"
+  }
+}
