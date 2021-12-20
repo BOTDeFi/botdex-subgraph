@@ -1,6 +1,6 @@
 # Botdex subgraph
 
-Subgraphs as GraphQL endpoints to fetch data within the refinery.finance platform.
+Subgraphs as GraphQL endpoints to fetch data within the botdex platform.
 
 ## To setup and deploy
 
