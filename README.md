@@ -1,4 +1,4 @@
-# Pancake subgraph
+# Botdex subgraph
 
 Subgraphs as GraphQL endpoints to fetch data within the refinery.finance platform.
 
